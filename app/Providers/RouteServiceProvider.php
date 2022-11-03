@@ -41,10 +41,10 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/backend/admin.php'));
 
-            // Cashier/Teller Route
+            // Player Route
             Route::middleware('web')
                 ->namespace($this->namespace)
-                ->group(base_path('routes/backend/cashier.php'));
+                ->group(base_path('routes/backend/player.php'));
         });
     }
 

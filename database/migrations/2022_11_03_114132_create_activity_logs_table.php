@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('user_types', function (Blueprint $table) {
-            $table->id();
-            $table->string('role');
+        Schema::create('activity_logs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('type', 50);
+            $table->integer('user_id')->unsigned();
+            $table->text('assets')->nullable();
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_types');
+        Schema::dropIfExists('activity_logs');
     }
 };

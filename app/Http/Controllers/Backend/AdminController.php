@@ -10,6 +10,6 @@ class AdminController extends Controller
     public function index()
     {
         $user = auth()->user();
-        return 'admin';
+        return view('backend.admin.index');
     }
 }

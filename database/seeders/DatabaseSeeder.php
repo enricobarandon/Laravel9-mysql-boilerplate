@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'last_name'         =>      'Teller',
             'username'          =>      'cashier',
             'email'             =>      'cashierteller@lucky8',
-            'user_type_id'      =>      4
+            'user_type_id'      =>      2
         ]);
 
         $this->call(UserTypeSeeder::class);

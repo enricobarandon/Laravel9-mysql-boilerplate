@@ -13,25 +13,27 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $collection) {
-            $collection->id();
-            $collection->char('uuid', 36)->nullable();
-            $collection->integer('group_id');
-            $collection->boolean('is_active')->default(1);
-            $collection->integer('user_type_id');
-            $collection->string('first_name');
-            $collection->string('middle_name');
-            $collection->string('last_name');
-            $collection->string('contact', 50);
-            $collection->string('email')->unique();
-            $collection->timestamp('email_verified_at')->nullable();
-            $collection->string('password');
-            $collection->char('pin', 6);
-            $collection->char('allowed_sides', 10);
-            $collection->integer('max_bet');
-            $collection->integer('max_draw_bet');
-            $collection->rememberToken();
-            $collection->timestamps();
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->char('uuid', 36)->nullable();
+            // $table->integer('group_id');
+            $table->boolean('is_active')->default(1);
+            $table->integer('user_type_id');
+            $table->string('first_name');
+            $table->string('middle_name');
+            $table->string('last_name');
+            $table->string('contact', 50)->nullable();
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('username');
+            $table->string('password');
+            $table->char('pin', 6)->nullable();
+            // $table->char('allowed_sides', 10);
+            $table->integer('max_bet')->default(1000);
+            // $table->integer('max_draw_bet');
+            $table->text('session_id');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 

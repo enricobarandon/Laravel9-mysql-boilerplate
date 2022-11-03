@@ -24,9 +24,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // return view('home');
         if (Auth::check()) {
-            return view('home');
+            // return view('home');
+            $user = Auth::user();
+        
+            $role = $user->user_type_id;
+            
+            switch ($role) {
+                case '1':
+                    return redirect()->to('/admin');
+                    break;
+                case '2':
+                    return redirect()->to('/');
+                    break;
+                default:
+                    return '/404';
+                    break;
+            }
         } else {
             return view('login');
         }

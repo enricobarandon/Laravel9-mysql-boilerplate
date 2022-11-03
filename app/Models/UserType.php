@@ -3,14 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
+// use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 
-class UserType extends Eloquent
+class UserType extends Model
 {
     use HasFactory;
 
-    protected $collection = 'user_types';
+    protected $table = 'user_types';
 
     protected $fillable = ['id','role'];
 }
