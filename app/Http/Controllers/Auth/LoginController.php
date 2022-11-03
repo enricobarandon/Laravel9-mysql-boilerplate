@@ -30,7 +30,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -137,7 +137,7 @@ class LoginController extends Controller
             return $response;
         }
 
-        return redirect()->intended($this->redirectTo());
+        return redirect()->to($this->redirectTo());
 
         return $request->wantsJson()
                     ? new JsonResponse([], 204)
